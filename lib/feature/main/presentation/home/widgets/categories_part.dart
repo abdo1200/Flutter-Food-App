@@ -1,4 +1,4 @@
-import 'package:app_theme/constant.dart';
+import 'package:app_theme/core/constant.dart';
 import 'package:flutter/material.dart';
 
 class CategoriesPart extends StatefulWidget {
