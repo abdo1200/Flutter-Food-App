@@ -15,7 +15,6 @@ class HomePage extends StatelessWidget {
     return Container(
       width: width(context),
       height: height(context),
-      color: const Color.fromARGB(255, 238, 238, 238),
       child: SingleChildScrollView(
         child: SafeArea(
           child: Column(

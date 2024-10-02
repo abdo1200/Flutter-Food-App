@@ -29,9 +29,9 @@ class AppHeader extends StatelessWidget {
           const SizedBox(
             height: 10,
           ),
-          const Text(
+           Text(
             "Choose",
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            style: Theme.of(context).textTheme.bodyLarge,
           ),
           RichText(
               text: const TextSpan(children: [

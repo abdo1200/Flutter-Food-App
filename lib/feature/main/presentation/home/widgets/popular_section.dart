@@ -29,7 +29,7 @@ class PopularSection extends StatelessWidget {
                         width: 200,
                         margin: EdgeInsets.all(10),
                         decoration: BoxDecoration(
-                            color: Colors.white,
+                            color: Theme.of(context).unselectedWidgetColor,
                             borderRadius: BorderRadius.circular(20)),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,

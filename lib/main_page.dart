@@ -20,6 +20,7 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).primaryColor,
       body: Stack(
         children: [
           PageView(
@@ -61,7 +62,7 @@ class _MainPageState extends State<MainPage> {
                           child: Icon(
                             Icons.home_filled,
                             color: index == 0
-                                ? Colors.white
+                                ? Theme.of(context).secondaryHeaderColor
                                 : Colors.white.withOpacity(.5),
                           ))),
                   InkWell(
@@ -78,7 +79,7 @@ class _MainPageState extends State<MainPage> {
                           child: Icon(
                             Icons.favorite_border_rounded,
                             color: index == 1
-                                ? Colors.white
+                                ?  Theme.of(context).secondaryHeaderColor
                                 : Colors.white.withOpacity(.5),
                           ))),
                   InkWell(
@@ -95,7 +96,7 @@ class _MainPageState extends State<MainPage> {
                           child: Icon(
                             Icons.shopping_cart,
                             color: index == 2
-                                ? Colors.white
+                                ?  Theme.of(context).secondaryHeaderColor
                                 : Colors.white.withOpacity(.5),
                           ))),
                   InkWell(
@@ -112,7 +113,7 @@ class _MainPageState extends State<MainPage> {
                           child: Icon(
                             Icons.person_outline,
                             color: index == 3
-                                ? Colors.white
+                                ?  Theme.of(context).secondaryHeaderColor
                                 : Colors.white.withOpacity(.5),
                           ))),
                 ],
