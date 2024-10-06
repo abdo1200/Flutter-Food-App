@@ -18,9 +18,9 @@ class _CategoriesPartState extends State<CategoriesPart> {
         children: categories
             .map(
               (e) => InkWell(
-                onTap: (){
+                onTap: () {
                   setState(() {
-                    selected=e;
+                    selected = e;
                   });
                 },
                 child: Container(
@@ -29,12 +29,16 @@ class _CategoriesPartState extends State<CategoriesPart> {
                   constraints: BoxConstraints(minWidth: width(context) * .2),
                   margin: EdgeInsets.all(10),
                   decoration: BoxDecoration(
-                      color: selected == e ? Colors.red : Colors.white,
+                      color: selected == e
+                          ? Colors.red
+                          : Theme.of(context).unselectedWidgetColor,
                       borderRadius: BorderRadius.circular(20)),
                   child: Text(
                     e,
                     style: TextStyle(
-                        color: selected == e ? Colors.white : Colors.black),
+                        color: selected == e
+                            ? Colors.white
+                            : Theme.of(context).textTheme.bodyLarge!.color),
                   ),
                 ),
               ),
@@ -42,9 +46,7 @@ class _CategoriesPartState extends State<CategoriesPart> {
             .toList(),
       ),
     );
- 
   }
-
 }
 
 List categories = ["All", "Pizza", "Burger", "Sandwiches"];

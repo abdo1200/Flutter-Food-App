@@ -23,7 +23,7 @@ class HomePage extends StatelessWidget {
               SearchArea(),
               CategoriesPart(),
               PopularSection(),
-              PopularSection(),
+              // PopularSection(),
             ],
           ),
         ),

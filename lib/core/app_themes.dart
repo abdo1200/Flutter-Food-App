@@ -6,25 +6,28 @@ class AppTheme {
     primaryColorLight: Colors.red,
     unselectedWidgetColor: Colors.white,
     secondaryHeaderColor: Colors.white,
+    // switchTheme:
+    //     SwitchThemeData(overlayColor: WidgetStatePropertyAll(Colors.red)),
+    iconTheme: IconThemeData(color: Colors.black),
     textTheme: TextTheme(
-      bodySmall: TextStyle(fontSize: 16, color: Colors.black),
-      bodyMedium: TextStyle(fontSize: 14, color: Colors.black54),
+      bodySmall: TextStyle(fontSize: 14, color: Colors.black),
+      bodyMedium: TextStyle(fontSize: 18, color: Colors.black),
       bodyLarge: TextStyle(
-          fontSize: 24, fontWeight: FontWeight.bold, color: Colors.black54),
+          fontSize: 22, fontWeight: FontWeight.bold, color: Colors.black),
     ),
-    // Define other theme properties here
   );
 
   static final ThemeData darkTheme = ThemeData(
     primaryColor: Colors.grey[850],
     primaryColorLight: Colors.red,
+    iconTheme: IconThemeData(color: Colors.white),
     secondaryHeaderColor: Colors.black,
     unselectedWidgetColor: const Color.fromARGB(255, 37, 37, 38),
     textTheme: TextTheme(
-      bodySmall: TextStyle(fontSize: 16, color: Colors.white),
-      bodyMedium: TextStyle(fontSize: 14, color: Colors.white70),
+      bodySmall: TextStyle(fontSize: 14, color: Colors.white),
+      bodyMedium: TextStyle(fontSize: 18, color: Colors.white70),
       bodyLarge: TextStyle(
-          fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white),
+          fontSize: 22, fontWeight: FontWeight.bold, color: Colors.white),
     ),
     // Define other theme properties here
   );

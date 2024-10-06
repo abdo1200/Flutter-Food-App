@@ -1,4 +1,6 @@
 import 'package:app_theme/core/constant.dart';
+import 'package:app_theme/feature/main/domain/entities/food_model.dart';
+import 'package:app_theme/feature/main/presentation/details_page/details_page.dart';
 import 'package:flutter/material.dart';
 
 class PopularSection extends StatelessWidget {
@@ -11,18 +13,33 @@ class PopularSection extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('Popular Food',style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold
-                              ),),
-          SizedBox(height: 10,),
+          Text(
+            'Popular Food',
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          ),
+          SizedBox(
+            height: 10,
+          ),
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
               children: popular
                   .map(
                     (e) => InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => DetailsPage(
+                                food: FoodModel(
+                                    category: e.category,
+                                    name: e.name,
+                                    image: e.image,
+                                    description: e.description,
+                                    price: e.price),
+                              ),
+                            ));
+                      },
                       child: Container(
                         alignment: Alignment.center,
                         padding: EdgeInsets.all(10),
@@ -37,46 +54,51 @@ class PopularSection extends StatelessWidget {
                             SizedBox(
                               width: 200,
                               child: Stack(children: [
-                                Image.asset(
-                                  imagePath + e['image'],
-                                  width: width(context) * .4,
-                                  height: height(context) * .2,
+                                Hero(
+                                  tag: e.image,
+                                  child: Image.asset(
+                                    imagePath + e.image,
+                                    width: width(context) * .4,
+                                    height: height(context) * .2,
+                                  ),
                                 ),
-                                Positioned(right: 0,child: Icon(Icons.favorite_outline))
+                                Positioned(
+                                    right: 0,
+                                    child: Icon(Icons.favorite_outline))
                               ]),
                             ),
                             Text(
-                              e['name'],
+                              e.name,
                               style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.bold
-                              ),
+                                  fontSize: 18, fontWeight: FontWeight.bold),
                             ),
                             Text(
-                              e['cat'],
+                              e.category,
                               style: TextStyle(
                                 fontSize: 15,
-                               // fontWeight: FontWeight.bold
+                                // fontWeight: FontWeight.bold
                               ),
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                              "price: "+e['price']+"\$",
-                              style: TextStyle(
-                                fontSize: 15,
-                               // fontWeight: FontWeight.bold
-                              ),
-                            ),
-                            Container(
-                              padding: EdgeInsets.all(10),
-                              decoration: BoxDecoration(
-                                color: Colors.red,
-                                borderRadius: BorderRadius.circular(5)
-                              ),
-                              child: Icon(Icons.add,color: Colors.white,),
-                            )
+                                  "price: " + e.price.toString() + "\$",
+                                  style: TextStyle(
+                                    fontSize: 15,
+                                    // fontWeight: FontWeight.bold
+                                  ),
+                                ),
+                                Container(
+                                  padding: EdgeInsets.all(10),
+                                  decoration: BoxDecoration(
+                                      color: Colors.red,
+                                      borderRadius: BorderRadius.circular(5)),
+                                  child: Icon(
+                                    Icons.add,
+                                    color: Colors.white,
+                                  ),
+                                )
                               ],
                             )
                           ],
@@ -93,18 +115,23 @@ class PopularSection extends StatelessWidget {
   }
 }
 
-List popular = [
-  {"image": "burger.png", "name": "Hamburger", "cat": "Burger", "price": "200"},
-  {
-    "image": "pizza.png",
-    "name": "Chicken Pizza",
-    "cat": "Pizza",
-    "price": "300"
-  },
-  {
-    "image": "sandwich.png",
-    "name": "Cheese Sandwich",
-    "cat": "Sandwich",
-    "price": "100"
-  },
+List<FoodModel> popular = [
+  FoodModel(
+      name: "Hamburger",
+      category: "Burger",
+      image: "burger.png",
+      description: "hamburger served with two buns",
+      price: 200.0),
+  FoodModel(
+      name: "Chicken Pizza",
+      category: "Pizza",
+      image: "pizza.png",
+      description: "hamburger served with two buns",
+      price: 200.0),
+  FoodModel(
+      name: "Cheese Sandwich",
+      category: "Sandwich",
+      image: "sandwich.png",
+      description: "hamburger served with two buns",
+      price: 200.0),
 ];

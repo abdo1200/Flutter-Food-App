@@ -20,34 +20,32 @@ class AppHeader extends StatelessWidget {
                 height: 50,
                 fit: BoxFit.cover,
               ),
-              const Icon(
+              Icon(
                 Icons.notifications_none_outlined,
                 size: 30,
+                //color: Theme.of(context).iconTheme.color,
               )
             ],
           ),
           const SizedBox(
             height: 10,
           ),
-           Text(
+          Text(
             "Choose",
             style: Theme.of(context).textTheme.bodyLarge,
           ),
           RichText(
-              text: const TextSpan(children: [
+              text: TextSpan(children: [
             TextSpan(
               text: "Your Favourite",
-              style: const TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black),
+              style: Theme.of(context).textTheme.bodyLarge,
             ),
             TextSpan(
               text: " Food",
-              style: const TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.red),
+              style: Theme.of(context)
+                  .textTheme
+                  .bodyLarge!
+                  .copyWith(color: Colors.red),
             )
           ]))
         ],
